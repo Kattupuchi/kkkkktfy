@@ -41,7 +41,7 @@ for load in to_load:
         print("------------------------------------")
 
 
-@System.on(system_cmd(pattern=r"sxsinfo", allow_enforcer=True))
+@System.on(system_cmd(pattern=r"status", allow_enforcer=True))
 async def status(event):
     msg = await event.reply("Conecting to Karma X System System Core.")
     time.sleep(1)
