@@ -27,18 +27,18 @@ def get_data_from_url(url: str) -> tuple:
 
 
 @System.command(
-    e=system_cmd(pattern=r"scan ", allow_enforcer=True),
+    e=system_cmd(pattern=r"punish ", allow_enforcer=True),
     group="main",
     help="Reply to a message WITH reason to send a request to Inspect",
     flags=[
         Flag(
             "-f",
-            "Force approve a scan. Using this with scan will auto approve it",
+            "Force approve a punish. Using this with punish will auto approve it",
             "store_true"
         ),
         Flag(
             "-u",
-            "Grab message from url. Use this with message link to scan the user the message link redirects to.",
+            "Grab message from url. Use this with message link to puinsh the user the message link redirects to.",
         ),
         Flag(
             "-o",
@@ -47,14 +47,14 @@ def get_data_from_url(url: str) -> tuple:
         ),
         Flag(
             "-r",
-            "Reason to scan message with.",
+            "Reason to punish message with.",
             nargs="*",
             default=None
         )
     ],
     allow_unknown=True
 )
-async def scan(event, flags):
+async def punish(event, flags):
     replied = await event.get_reply_message()
     if flags.r:
         reason = " ".join(flags.r)
@@ -132,7 +132,7 @@ async def scan(event, flags):
         if event.chat.username
         else f"t.me/c/{event.chat.id}/{event.message.id}"
     )
-    await event.reply("Connecting to Sylviorus for a cymatic scan.")
+    await event.reply("Connecting to Karma for a cymatic punish.")
     if req_proof and req_user:
         await replied.forward_to(Karma_logs)
         await System.gban(
@@ -185,18 +185,18 @@ async def logs(event):
 @System.command(
     e = system_cmd(pattern=r"approve", allow_inspectors=True, force_reply=True),
     group="main",
-    help="Approve a scan request.",
+    help="Approve a punish request.",
     flags=[Flag("-or", "Overwrite reason", nargs="*")]
 )
 async def approve(event, flags):
     replied = await event.get_reply_message()
-    match = re.match(r"\$SCAN", replied.text)
-    auto_match = re.search(r"\$AUTO(SCAN)?", replied.text)
+    match = re.match(r"\$PUNISH", replied.text)
+    auto_match = re.search(r"\$AUTO(PUNISH)?", replied.text)
     me = await System.get_me()
     if auto_match:
         if replied.sender.id == me.id:
             id = re.search(
-                r"\*\*Scanned user:\*\* (\[\w+\]\(tg://user\?id=(\d+)\)|(\d+))",
+                r"\*\*Punished user:\*\* (\[\w+\]\(tg://user\?id=(\d+)\)|(\d+))",
                 replied.text,
             ).group(2)
             try:
@@ -231,15 +231,15 @@ async def approve(event, flags):
                 reason = " ".join(getattr(flags, "or"))
                 await replied.edit(
                     re.sub(
-                        "(\*\*)?(Scan)? ?Reason:(\*\*)? (`([^`]*)`|.*)",
-                        f'**Scan Reason:** `{reason}`',
+                        "(\*\*)?(punish)? ?Reason:(\*\*)? (`([^`]*)`|.*)",
+                        f'**Punish Reason:** `{reason}`',
                         replied.text,
                     )
                 )
                 overwritten = True
             else:
                 reason = re.search(
-                    r"(\*\*)?(Scan)? ?Reason:(\*\*)? (`([^`]*)`|.*)", replied.text
+                    r"(\*\*)?(Punish)? ?Reason:(\*\*)? (`([^`]*)`|.*)", replied.text
                 )
                 reason = reason.group(5) if reason.group(5) else reason.group(4)
             if len(list) > 1:
@@ -283,7 +283,7 @@ async def approve(event, flags):
                         reply_to=int(orig.group(2)),
                     )
                 except:
-                    await event.reply('Failed to notify enforcer about scan being accepted.')
+                    await event.reply('Failed to notify enforcer about punish being accepted.')
 
 
 @System.on(system_cmd(pattern=r"reject", allow_inspectors=True, force_reply=True))
@@ -293,7 +293,7 @@ async def reject(event):
     me = await System.get_me()
     if replied.from_id.user_id == me.id:
         # print('Matching UwU')
-        match = re.match(r"\$(SCAN|AUTO(SCAN)?)", replied.text)
+        match = re.match(r"\$(PUNISH|AUTO(PUNISH)?)", replied.text)
         if match:
             # print('Matched OmU')
             id = replied.id
@@ -319,21 +319,21 @@ async def reject(event):
 help_plus = """
 Here is the help for **Main**:
 Commands:
-    `scan` - Reply to a message WITH reason to send a request to Inspectors/Karma for judgement
-    `approve` - Approve a scan request (Only works in Karma System Base)
+    `punish` - Reply to a message WITH reason to send a request to Inspectors/Karma for judgement
+    `approve` - Approve a punish request (Only works in Karma System Base)
     `revert` or `revive` or `restore` - Ungban ID
     `qproof` - Get quick proof from database for given user id
     `proof` - Get message from proof id which is at the end of gban msg
-    `reject` - Reject a scan request
+    `reject` - Reject a punish request
 Flags:
-    scan:
-        `-f` - Force approve a scan. Using this with scan will auto approve it (Inspectors+)
-        `-u` - Grab message from url. Use this with message link to scan the user the message link redirects to. (Enforcers+)
+    punish:
+        `-f` - Force approve a punish. Using this with punish will auto approve it (Inspectors+)
+        `-u` - Grab message from url. Use this with message link to punish the user the message link redirects to. (Enforcers+)
         `-o` - Original Sender. Using this will gban orignal sender instead of forwarder (Enforcers+)
     approve:
-        `-or` - Overwrite reason. Use this to change scan reason.
+        `-or` - Overwrite reason. Use this to change punish reason.
     reject:
-        `-r` - Reply to the scan message with reject reason.
+        `-r` - Reply to the punish message with reject reason.
 All commands can be used with ! or / or ? or .
 """
 
