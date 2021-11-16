@@ -175,7 +175,7 @@ async def revive(event):
     ):
         await a.edit("User is not gbanned.")
         return
-    await a.edit("Revert request sent to Sylviorus. This might take 10minutes or so.")
+    await a.edit("Revert request sent to karma. This might take 10minutes or so.")
 
 
 @System.on(system_cmd(pattern=r"Karma logs"))
