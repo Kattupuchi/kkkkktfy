@@ -43,7 +43,7 @@ for load in to_load:
 
 @System.on(system_cmd(pattern=r"status", allow_enforcer=True))
 async def status(event):
-    msg = await event.reply("Conecting to Karma X System System Core.", file='https://telegra.ph/file/26d69fef61dd8dd4415c6.mp4)
+    msg = await event.reply("Conecting to Karma X System System Core.", file='https://telegra.ph/file/26d69fef61dd8dd4415c6.mp4')
     time.sleep(1)
     await msg.edit("Initialising ■□□□□□")
     time.sleep(1)
