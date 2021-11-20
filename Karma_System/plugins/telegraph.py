@@ -10,11 +10,9 @@ from telethon.utils import get_display_name
 
 from Karma_System import system_cmd, System
 
-from ..Config import Config
+from Karma_System.config import Config
 from ..core.logger import logging
 from ..core.managers import edit_or_reply
-from . import BOTLOG, BOTLOG_CHATID
-
 LOGS = logging.getLogger(__name__)
 plugin_category = "utils"
 
