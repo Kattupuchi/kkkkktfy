@@ -5,3 +5,6 @@ heroku3
 pillow
 dnspython
 pymongo
+telegraph
+pyrogram
+TGcrypto
