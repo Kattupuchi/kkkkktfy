@@ -8,7 +8,7 @@ from PIL import Image
 from telegraph import Telegraph, exceptions, upload_file
 from telethon.utils import get_display_name
 
-from karma_system import catub
+from telegraph import telegraph
 
 from ..Config import Config
 from ..core.logger import logging
