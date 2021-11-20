@@ -1,5 +1,4 @@
-# telegraph utils for catuserbot
-import os
+
 import random
 import string
 from datetime import datetime
@@ -10,7 +9,6 @@ from telethon.utils import get_display_name
 
 from Karma_System import system_cmd, System
 
-from Karma_System.config import config
 from ..core.logger import logging
 from ..core.managers import edit_or_reply
 LOGS = logging.getLogger(__name__)
