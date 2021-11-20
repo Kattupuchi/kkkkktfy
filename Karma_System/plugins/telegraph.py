@@ -8,7 +8,7 @@ from PIL import Image
 from telegraph import Telegraph, exceptions, upload_file
 from telethon.utils import get_display_name
 
-from telegraph import KarmaClient
+from Karma_System import system_cmd, System
 
 from ..Config import Config
 from ..core.logger import logging
@@ -29,7 +29,7 @@ def resize_image(image):
     im.save(image, "PNG")
 
 
-@KarmaClient(
+@System.on(
     pattern="(t(ele)?g(raph)?) ?(m|t|media|text)(?:\s|$)([\s\S]*)",
     command=("telegraph", plugin_category),
     info={
