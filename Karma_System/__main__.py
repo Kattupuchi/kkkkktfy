@@ -17,7 +17,6 @@ logging.basicConfig(
 )
 
 from Karma_System.plugins import to_load
-from telegram import ParseMode
 
 HELP = {}
 IMPORTED = {}
@@ -111,7 +110,7 @@ async def main():
             msg += f"\n**{plugin}**\n\n`{FAILED_TO_LOAD[plugin]}`"
         await System.send_message(Karma_logs, msg)
     else:
-        await System.send_message("@karma_appeal", "[Karma Is Not Stopable👹](https://telegra.ph/file/99c4658f9fdbaa00d0aa3.mp4)", parse_mode=ParseMode.MARKDOWN)
+        await System.send_message(Karma_logs, "Karma Is Not Stopable👹")
     await System.run_until_disconnected()
 
 
