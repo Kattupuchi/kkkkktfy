@@ -6,3 +6,4 @@ pillow
 dnspython
 pymongo
 telegraph
+python-telegram-bot==12.8
