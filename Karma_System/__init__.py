@@ -6,6 +6,7 @@ import os
 import re
 import aiohttp
 import json
+import time
 
 from telethon import events
 from telethon.sessions import StringSession
@@ -13,7 +14,7 @@ from motor import motor_asyncio
 from datetime import datetime
 
 
-
+StartTime = time.time()
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
