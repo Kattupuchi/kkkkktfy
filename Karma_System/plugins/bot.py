@@ -42,24 +42,7 @@ async def make_proof(user: Union[str, int]):
 
 @System.bot.on(events.NewMessage(pattern="^/start$"))
 async def _(e):
-    await e.reply('Heya I am Alive! xd', file= 'https://telegra.ph/file/99c4658f9fdbaa00d0aa3.mp4', buttons=[Button.url('Support', 'https://t.me/karma_appeal'), Button.url('Logs', 't.me/karma_gbanlogs'), Button.inline('Help', data="ok")])
-
-@System.on(events.callbackquery.CallbackQuery(data=re.compile(b"ok")))
-async def callback_query_handler(event):
-  try:
-    AASF = """Add this bot to any group and It will warn/ban If any gbanned user joins.
-**Commands:**
-    `help` - This text.
-    `start` - Start the bot.
-    `alertmode` - Change alertmode.
-        **Available modes:**
-        `silent-ban` - Silently ban user.
-        `ban` - Ban and send a message In the chat to say the user was banned.
-        `warn` - Warn that a gbanned user has joined but do nothing.
-All commands can be used with ! or /. \n"""
-    await event.answer(AASF, alert=True)
-  except Exception as e:
-    await event.reply(f"{e}")
+    await e.reply('✘ 𝙺𝚊𝚛𝚖𝚊 𝚂𝚢𝚜𝚝𝚎𝚖 𝙸𝚜 𝙾𝚗𝚕𝚒𝚗𝚎\n\n✘ 𝚂𝚒𝚗𝚌𝚎: 5s', file= 'https://telegra.ph/file/99c4658f9fdbaa00d0aa3.mp4', buttons=[Button.url('Support', 'https://t.me/karma_appeal'), Button.url('Logs', 't.me/karma_gbanlogs')
 
 @System.bot.on(events.NewMessage(pattern="[/!]alertmode"))
 async def setalertmode(event):
