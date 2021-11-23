@@ -12,6 +12,7 @@ import time
 import asyncio
 
 data = []
+StartTime = time.time()
 DATA_LOCK = asyncio.Lock()
 
 def get_readable_time(seconds: int) -> str:
