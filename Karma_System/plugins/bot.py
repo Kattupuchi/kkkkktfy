@@ -72,7 +72,7 @@ async def make_proof(user: Union[str, int]):
 @System.bot.on(events.NewMessage(pattern="^/start$"))
 async def _(e):
     uptime = get_readable_time((time.time() - StartTime))
-    await e.reply('✘ 𝙺𝚊𝚛𝚖𝚊 𝚂𝚢𝚜𝚝𝚎𝚖 𝙸𝚜 𝙾𝚗𝚕𝚒𝚗𝚎\n\n✘ 𝚂𝚒𝚗𝚌𝚎: {}'.format(uptime), file= 'https://telegra.ph/file/99c4658f9fdbaa00d0aa3.mp4', buttons=[Button.url('**Sᴜᴘᴘᴏʀᴛ**', 'https://t.me/karma_appeal'), Button.url('**Lᴏɢs**', 't.me/karma_gbanlogs'),
+    await e.reply('✘ 𝙺𝚊𝚛𝚖𝚊 𝚂𝚢𝚜𝚝𝚎𝚖 𝙸𝚜 𝙾𝚗𝚕𝚒𝚗𝚎\n\n✘ 𝚂𝚒𝚗𝚌𝚎: `{}`'.format(uptime), file= 'https://telegra.ph/file/99c4658f9fdbaa00d0aa3.mp4', buttons=[Button.url('**Sᴜᴘᴘᴏʀᴛ**', 'https://t.me/karma_appeal'), Button.url('**Lᴏɢs**', 't.me/karma_gbanlogs'),
 Button.url('**Sᴄᴀɴɴᴇʀ**', 't.me/Karma_scanner')])
 
 @System.bot.on(events.NewMessage(pattern="[/!]alertmode"))
