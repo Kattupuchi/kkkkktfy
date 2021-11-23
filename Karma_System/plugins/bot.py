@@ -47,7 +47,7 @@ async def _(e):
 @System.on(events.callbackquery.CallbackQuery(data=re.compile(b"ok")))
 async def callback_query_handler(event):
   try:
-    AASF = "Add this bot to any group and It will warn/ban If any gbanned user joins.
+    AASF = """Add this bot to any group and It will warn/ban If any gbanned user joins.
 **Commands:**
     `help` - This text.
     `start` - Start the bot.
@@ -56,7 +56,7 @@ async def callback_query_handler(event):
         `silent-ban` - Silently ban user.
         `ban` - Ban and send a message In the chat to say the user was banned.
         `warn` - Warn that a gbanned user has joined but do nothing.
-All commands can be used with ! or /. \n"
+All commands can be used with ! or /. \n"""
     await event.answer(AASF, alert=True)
   except Exception as e:
     await event.reply(f"{e}")
