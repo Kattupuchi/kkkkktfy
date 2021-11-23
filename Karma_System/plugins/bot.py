@@ -8,10 +8,38 @@ from telethon import events, custom
 from typing import Union
 import logging
 import re
+import time
 import asyncio
 
 data = []
 DATA_LOCK = asyncio.Lock()
+
+def get_readable_time(seconds: int) -> str:
+    count = 0
+    ping_time = ""
+    time_list = []
+    time_suffix_list = ["s", "m", "h", "days"]
+
+    while count < 4:
+        count += 1
+        if count < 3:
+            remainder, result = divmod(seconds, 60)
+        else:
+            remainder, result = divmod(seconds, 24)
+        if seconds == 0 and remainder == 0:
+            break
+        time_list.append(int(result))
+        seconds = int(remainder)
+
+    for x in range(len(time_list)):
+        time_list[x] = str(time_list[x]) + time_suffix_list[x]
+    if len(time_list) == 4:
+        ping_time += time_list.pop() + ", "
+
+    time_list.reverse()
+    ping_time += ":".join(time_list)
+
+    return ping_time
 
 def can_ban(event):
     status = False
@@ -42,7 +70,9 @@ async def make_proof(user: Union[str, int]):
 
 @System.bot.on(events.NewMessage(pattern="^/start$"))
 async def _(e):
-    await e.reply('✘ 𝙺𝚊𝚛𝚖𝚊 𝚂𝚢𝚜𝚝𝚎𝚖 𝙸𝚜 𝙾𝚗𝚕𝚒𝚗𝚎\n\n✘ 𝚂𝚒𝚗𝚌𝚎: 5s', file= 'https://telegra.ph/file/99c4658f9fdbaa00d0aa3.mp4', buttons=[Button.url('**Sᴜᴘᴘᴏʀᴛ**', 'https://t.me/karma_appeal'), Button.url('**Lᴏɢs**', 't.me/karma_gbanlogs')
+    uptime = get_readable_time((time.time() - StartTime))
+    await e.reply('✘ 𝙺𝚊𝚛𝚖𝚊 𝚂𝚢𝚜𝚝𝚎𝚖 𝙸𝚜 𝙾𝚗𝚕𝚒𝚗𝚎\n\n✘ 𝚂𝚒𝚗𝚌𝚎: {}'.format(uptime), file= 'https://telegra.ph/file/99c4658f9fdbaa00d0aa3.mp4', buttons=[Button.url('**Sᴜᴘᴘᴏʀᴛ**', 'https://t.me/karma_appeal'), Button.url('**Lᴏɢs**', 't.me/karma_gbanlogs'),
+Button.url('**Sᴄᴀɴɴᴇʀ**', 't.me/Karma_scanner')])
 
 @System.bot.on(events.NewMessage(pattern="[/!]alertmode"))
 async def setalertmode(event):
