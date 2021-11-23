@@ -42,7 +42,7 @@ async def make_proof(user: Union[str, int]):
 
 @System.bot.on(events.NewMessage(pattern="^/start$"))
 async def _(e):
-    await e.reply('✘ 𝙺𝚊𝚛𝚖𝚊 𝚂𝚢𝚜𝚝𝚎𝚖 𝙸𝚜 𝙾𝚗𝚕𝚒𝚗𝚎\n\n✘ 𝚂𝚒𝚗𝚌𝚎: 5s', file= 'https://telegra.ph/file/99c4658f9fdbaa00d0aa3.mp4', buttons=[Button.url('Support', 'https://t.me/karma_appeal'), Button.url('Logs', 't.me/karma_gbanlogs')
+    await e.reply('✘ 𝙺𝚊𝚛𝚖𝚊 𝚂𝚢𝚜𝚝𝚎𝚖 𝙸𝚜 𝙾𝚗𝚕𝚒𝚗𝚎\n\n✘ 𝚂𝚒𝚗𝚌𝚎: 5s', file= 'https://telegra.ph/file/99c4658f9fdbaa00d0aa3.mp4', buttons=[Button.url('**Sᴜᴘᴘᴏʀᴛ**', 'https://t.me/karma_appeal'), Button.url('**Lᴏɢs**', 't.me/karma_gbanlogs')
 
 @System.bot.on(events.NewMessage(pattern="[/!]alertmode"))
 async def setalertmode(event):
