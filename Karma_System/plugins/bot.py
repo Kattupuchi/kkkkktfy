@@ -3,7 +3,7 @@ from Karma_System.strings import proof_string, scan_request_string, reject_strin
 from Karma_System.plugins.Mongo_DB.gbans import get_gban, get_gban_by_proofid
 import Karma_System.plugins.Mongo_DB.bot_settings as db
 
-from telethon import events, custom
+from telethon import events, custom, Button
 
 from typing import Union
 import logging
