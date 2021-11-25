@@ -12,7 +12,7 @@ from telethon.tl.functions.messages import ImportChatInviteRequest
 from Karma_System.plugins.Mongo_DB.tree import add_inspector, add_enforcers, get_data
 from Karma_System import ENFORCERS, INSPECTORS, Karma, session
 from Karma_System import System, system_cmd
-from Karma_System import karma_logs
+from Karma_System import Karma_logs
 
 from datetime import datetime
 from urllib.parse import urlparse, urlunparse
