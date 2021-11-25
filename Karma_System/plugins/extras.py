@@ -10,7 +10,7 @@ from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
 
 from Karma_System.plugins.Mongo_DB.tree import add_inspector, add_enforcers, get_data
-from Karma_System import ENFORCERS, INSPECTORS, KARMA, session
+from Karma_System import ENFORCERS, INSPECTORS, Karma, session
 from Karma_System import System, system_cmd
 from Karma_System import karma_logs
 
@@ -58,12 +58,12 @@ async def addenf(event) -> None:
         with open(json_file, "w") as file:
             json.dump(data, file, indent=4)
         await System.send_message(event.chat_id, "Added to enforcers, Restarting...")
-        if not event.from_id.user_id in KARMA:
+        if not event.from_id.user_id in Karma:
             await add_enforcers(event.from_id.user_id, u_id)
         await System.disconnect()
         os.execl(sys.executable, sys.executable, *sys.argv)
         sys.exit()
-    if not event.from_id.user_id in KARMA:
+    if not event.from_id.user_id in Karma:
         await add_enforcers(event.from_id.user_id, u_id)
     await System.send_message(
         event.chat_id, f"Added [{u_id}](tg://user?id={u_id}) to Enforcers"
