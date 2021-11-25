@@ -9,10 +9,10 @@ from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
 
-from karma_System.plugins.Mongo_DB.tree import add_inspector, add_enforcers, get_data
-from karma_System import ENFORCERS, INSPECTORS, Skynet, session
-from karma_System import System, system_cmd
-from karma_System import karma_logs
+from Karma_System.plugins.Mongo_DB.tree import add_inspector, add_enforcers, get_data
+from Karma_System import ENFORCERS, INSPECTORS, Skynet, session
+from Karma_System import System, system_cmd
+from Karma_System import karma_logs
 
 from datetime import datetime
 from urllib.parse import urlparse, urlunparse
