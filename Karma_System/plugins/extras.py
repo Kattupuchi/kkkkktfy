@@ -136,15 +136,15 @@ async def join(event) -> None:
         await System(ImportChatInviteRequest(private.group(5)))
         await System.send_message(event.chat_id, "Joined chat!")
         await System.send_message(
-            Skynet_logs,
-            f"{(await event.get_sender()).first_name} made Skynet join {private.group(5)}",
-        )
+            karma_logs,
+            f"{(await event.get_sender()).first_name} made karma join {private.group(5)}",
+        (
     else:
         await System(JoinChannelRequest(link))
         await System.send_message(event.chat_id, "Joined chat!")
         await System.send_message(
-            Skynet_logs,
-            f"{(await event.get_sender()).first_name} made Skynet join {link}",
+            karma_logs,
+            f"{(await event.get_sender()).first_name} made karma join {link}",
         )
 
 
@@ -283,11 +283,11 @@ async def leave(event) -> None:
     if c_id:
         await System(LeaveChannelRequest(int(c_id.group(0))))
         await System.send_message(
-            event.chat_id, f"Skynet has left chat with id[-{c_id.group(1)}]"
+            event.chat_id, f"karma has left chat with id[-{c_id.group(1)}]"
         )
     else:
         await System(LeaveChannelRequest(link))
-        await System.send_message(event.chat_id, f"Skynet has left chat[{link}]")
+        await System.send_message(event.chat_id, f"karma has left chat[{link}]")
 
 
 @System.on(system_cmd(pattern=r"get_redirect ", allow_inspectors=True))
