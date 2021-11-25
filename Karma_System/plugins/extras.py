@@ -18,7 +18,7 @@ from datetime import datetime
 from urllib.parse import urlparse, urlunparse
 
 try:
-    from karma_System import HEROKU_API_KEY, HEROKU_APP_NAME
+    from Karma_System import HEROKU_API_KEY, HEROKU_APP_NAME
 
     heroku_conn = heroku3.from_key(HEROKU_API_KEY)
     app = heroku_conn.app(HEROKU_APP_NAME)
