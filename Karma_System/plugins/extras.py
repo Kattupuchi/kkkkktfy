@@ -138,7 +138,7 @@ async def join(event) -> None:
         await System.send_message(
             karma_logs,
             f"{(await event.get_sender()).first_name} made karma join {private.group(5)}",
-        (
+       )
     else:
         await System(JoinChannelRequest(link))
         await System.send_message(event.chat_id, "Joined chat!")
