@@ -1,10 +1,19 @@
 on_string = """
-╒═══「 Karma X System • Server Core 」
-➖➖➖➖➖➖➖➖➖
-➛ NAME: {name}
-➛ RANK: {Enforcer}
-➖➖➖➖➖➖➖➖➖
-╘══「 You are an authorized user! 」
+_______________________________
+|                                                  
+|==== /«* ᴋᴀʀᴍᴀ x sʏsᴛᴇᴍ * » /                                    
+|                                                    
+|
+|
+|===== /«*Nᴀᴍᴇ*» {name}
+|      
+|                                              
+|
+|===== /«*ʀᴀɴᴋ*» {Enforcer}
+|
+|
+|      ✓•ᴠᴇʀɪғɪᴇᴅ ᴜsᴇʀ 😎😎😎    
+|_______________________________|
 """
 
 # Make sure not to change these too much
@@ -42,7 +51,7 @@ proof_string = """
          ┗━[DelDog]({url})"""
 
 scan_approved_string = """
-╒═══「 #LethalEliminator 」
+╒═══「 #ᴋᴀʀᴍᴀ ᴘᴜɴɪsʜ 」
 **❂ Target User:** {scam}
 **❂ Crime Coefficient:** `Over 300`
 **❂ Reason:** `{reason}`
